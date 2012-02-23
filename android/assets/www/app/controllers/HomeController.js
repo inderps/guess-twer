@@ -5,6 +5,6 @@ Ext.regController('Home', {
             xtype: 'HomeIndex',
 			});
 		}
-		this.application.viewport.setActiveItem(this.indexView);
+		App.viewport.setActiveItem(this.indexView);
     },
 });
