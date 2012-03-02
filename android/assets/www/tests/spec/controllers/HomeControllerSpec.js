@@ -11,4 +11,9 @@ describe("HomeController", function() {
 		expect(App.viewport.getActiveItem().xtype).toEqual('HomeIndex');
   });
 
+  it("should set HomeOptions as the active view", function() {
+		Ext.reg('HomeOptions', Ext.Panel);
+		controller.options();
+		expect(App.viewport.getActiveItem().xtype).toEqual('HomeOptions');
+  });
 });
