@@ -14,15 +14,6 @@ Ext.regController('Game', {
             xtype: 'GamePlay',
 			});
 		}
-		
-		var guessButton = this.playView.query('#guessButton')[0];
-		
-		guessButton.setHandler(function(){
-			if (!this.options) {
-                this.options = new Ext.Picker({});
-            }
-            this.options.show();
-		});
 		App.viewport.setActiveItem(this.playView);
     },
 });

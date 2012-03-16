@@ -3,13 +3,7 @@ describe("GameController", function() {
 	
   beforeEach(function() {
 	controller = Ext.ControllerManager.get('Game');
-	somePanel = new Ext.extend(Ext.Panel, {
-				dockedItems: [{
-						xtype: 'toolbar',
-						items: [{ itemId: 'guessButton'}]
-				}]
-		});
-    Ext.reg('GamePlay', somePanel);
+    Ext.reg('GamePlay', Ext.Panel);
   });
 	
   it("should set GameIndex as the active view for index actions", function() {
@@ -23,10 +17,4 @@ describe("GameController", function() {
 		expect(App.viewport.getActiveItem().xtype).toEqual('GamePlay');
   });
   
-    it("should display Options on click of Guess Button", function() {
-		controller.play();
-		var guessButton = App.viewport.getActiveItem().query('#guessButton')[0];
-		guessButton.callHandler();
-		expect(guessButton.Options).toEqual('GamePlay');
-  });
 });
