@@ -1,38 +1,18 @@
-<!DOCTYPE HTML>
 <html>
   <head>
-    <title>Guess-Twer</title>
- <link rel="stylesheet" type="text/css" href="lib/sencha-touch-1.1.1/sencha-touch.css" />
- <script type="text/javascript" src="lib/sencha-touch-1.1.1/sencha-touch.js"></script>
- <script type="text/javascript" src="app.js"></script>
- <script type="text/javascript" src="app/routes.js"></script>
+    <title>Guess-Twer</title> 
+    <link rel="stylesheet" type="text/css" href="lib/sencha-touch-2/sencha-touch.css">
  
- <!-- STYLESHEETS -->
- <link rel="stylesheet" type="text/css" href="res/css/style.css" />
- 
- <!-- CONTROLLERS -->
-<script src="app/controllers/HomeController.js" type="text/javascript"></script>
-<script src="app/controllers/GameController.js" type="text/javascript"></script>
-<script src="app/controllers/ScoresController.js" type="text/javascript"></script>
-
- 
-<!-- VIEWS -->
-<script type="text/javascript" src="app/views/Viewport.js"></script>
-<script type="text/javascript" src="app/views/home/HomeIndexView.js"></script>
-<script type="text/javascript" src="app/views/home/HomeOptionsView.js"></script>
-<script type="text/javascript" src="app/views/game/GameIndexView.js"></script>
-<script type="text/javascript" src="app/views/game/GamePlayView.js"></script>
-<script type="text/javascript" src="app/views/scores/ScoresHighestView.js"></script>
-<script type="text/javascript" src="app/views/game/GameResultView.js"></script>
-
-	
-  <script type="text/javascript" charset="utf-8" src="phonegap-1.4.1.js"></script>      
-  <script type="text/javascript" charset="utf-8">
-     function onLoad(){
-		  document.addEventListener("deviceready", App.mainLaunch, false);
-     }
-  </script>
+    <script type="text/javascript" src="lib/sencha-touch-2/sencha-touch-all-debug.js"></script>
+    <script type="text/javascript" src="app/app.js"></script>   
+  	<script type="text/javascript" charset="utf-8" src="phonegap-1.4.1.js"></script>      
+  	<script type="text/javascript" charset="utf-8">
+		function onLoad(){
+		//	document.addEventListener("deviceready", App.app.launch(), false);
+	}
+		
+	</script>
   </head>
-  <body onload="onLoad();">
+<body onload='onLoad()'>
   </body>
 </html>
