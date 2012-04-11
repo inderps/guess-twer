@@ -1,2 +1,0 @@
-describe("HomeOptionsView", function() {
- });
