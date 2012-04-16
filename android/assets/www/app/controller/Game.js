@@ -62,15 +62,22 @@ Ext.define('App.controller.Game', {
 		},
 		
 	guessOptionsSelected: function(e, values) { 
+		
+		
+				
 				if(values.guessOptions == correctAnswer) {
-					alert("Correct");
-					this.start();
-				}
-				else {
-					alert("Incorrect");
-					this.incorrectAnswers = this.incorrectAnswers + 1;
-					this.start();
-				}
+									this.result(true);
+									
+								}
+								else{
+								this.result(false);
+								}
+								
+								
 		},	 
+	
+	result: function(result){
+		alert("gud job"+result);
+	}	
 		
 });

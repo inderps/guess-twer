@@ -67,4 +67,26 @@ describe("GameController", function() {
   		expect(controller.picker.show).toHaveBeenCalled();
   });  
   
+    it("should redirect to result action with true as parameter on correct Guess Option selected", function() {
+    	window.correctAnswer= 1;
+    	var values = new Object();
+    	values.guessOptions = 1;
+    	spyOn(controller, 'result');
+ 
+  		controller.guessOptionsSelected("", values);
+  		
+  		expect(controller.result).toHaveBeenCalledWith(true);
+  }); 
+  
+  it("should redirect to result action with false as parameter on correct Guess Option selected", function() {
+    	window.correctAnswer= 1;
+    	var values = new Object();
+    	values.guessOptions = 2;
+    	spyOn(controller, 'result');
+ 
+  		controller.guessOptionsSelected("", values);
+  		
+  		expect(controller.result).toHaveBeenCalledWith(false);
+  }); 
+  
 });
