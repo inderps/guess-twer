@@ -14,6 +14,10 @@ Ext.define('App.controller.Game', {
 		if (!this.picker) {
 			this.picker = Ext.create('App.view.GuessPicker');
 		}
+		if (!this.answerView) {
+			this.answerView = Ext.create('App.view.AnswerView');
+		}
+		
 		this.control({
 			'#guessButton': {
 				tap: this.guessButtonTap
@@ -77,7 +81,7 @@ Ext.define('App.controller.Game', {
 		},	 
 	
 	result: function(result){
-		alert("gud job"+result);
+		Ext.Viewport.setActiveItem(this.answerView);
 	}	
 		
 });

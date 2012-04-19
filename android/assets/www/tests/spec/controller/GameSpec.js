@@ -17,6 +17,8 @@ describe("GameController", function() {
 		expect(controller.incorrectAnswers ).toEqual(0);
 		expect(controller.main).toEqual('some-view-created');
 		expect(controller.picker).toEqual('some-view-created');
+		expect(controller.answerView).toEqual('some-view-created');
+		
   		expect(Ext.create).toHaveBeenCalled();
   });
  
@@ -83,10 +85,21 @@ describe("GameController", function() {
     	var values = new Object();
     	values.guessOptions = 2;
     	spyOn(controller, 'result');
- 
   		controller.guessOptionsSelected("", values);
   		
   		expect(controller.result).toHaveBeenCalledWith(false);
   }); 
+  
+   it("should redirect to answerView on  result Action", function() {
+    	
+    	
+    	spyOn(Ext.Viewport, 'setActiveItem');
+ 		
+  		
+  		controller.result(true);
+  		
+  		expect(Ext.Viewport.setActiveItem).toHaveBeenCalledWith(controller.answerView);
+  }); 
+  
   
 });
