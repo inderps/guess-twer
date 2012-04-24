@@ -44,14 +44,15 @@ describe("GameController", function() {
   		controller.questionNumber = 0;
   		controller.main = mockedMainView;
   		
-  		spyOn(window, 'alert');
+  		
   		spyOn(Ext.Viewport, 'setMasked');
   		spyOn(Ext.data.JsonP, 'request');
   		spyOn(Ext.Viewport, 'setActiveItem');
+  		spyOn(controller, 'exit');
   		
   		controller.start();
   		
-  		expect(window.alert).toHaveBeenCalled();
+  		expect(controller.exit).toHaveBeenCalled();
   });  
   
   xit("should add picker to the view", function() {
@@ -100,6 +101,11 @@ describe("GameController", function() {
   		
   		expect(Ext.Viewport.setActiveItem).toHaveBeenCalledWith(controller.answerView);
   }); 
+  it("should redirect to final result if exit button is pressed", function(){
+  	spyOn(Ext.Viewport, 'setActiveItem');
+  	controller.exit();
+  	expect(Ext.Viewport.setActiveItem).toHaveBeenCalledWith(controller.finalResultView);
+  });
   
   
 });

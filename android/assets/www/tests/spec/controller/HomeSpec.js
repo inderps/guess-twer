@@ -15,5 +15,13 @@ describe("HomeController", function() {
   		expect(App.app.getController).toHaveBeenCalled();
   		expect(mockedGameController.start).toHaveBeenCalled();
   });
- 
+  
+  // it("should call Exit Action of Game Controller on Exit Button Tap", function() {
+  		// spyOn(App.app, 'getController').andReturn(mockedGameController);
+  		// spyOn(mockedGameController, 'exit');
+  		// controller.onExitGameTap();
+  		// expect(App.app.getController).toHaveBeenCalled();
+  		// expect(mockedGameController.exit).toHaveBeenCalled();
+  // });
+//  
 });

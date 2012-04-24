@@ -9,14 +9,16 @@ Ext.application({
     	'App.view.HomeScreenView',
     	'App.view.GamePlayView',
     	'App.view.GuessPicker',
-    	'App.view.AnswerView'
+    	'App.view.AnswerView',
+    	'App.view.FinalResultView'
+    	
     ],
 	//phoneStartupScreen: 'image/phoneStart.png',
     //glossOnIcon: false,
 
     models: ['GuessImageModel', 'GuessOptionsModel'],
     stores: ['GuessImageStore', 'GuessOptionsStore'],
-    views: ['HomeScreenView', 'GamePlayView', 'GuessPicker','AnswerView'],
+    views: ['HomeScreenView', 'GamePlayView', 'GuessPicker','AnswerView','FinalResultView'],
     //appFloder: 'app',
     controllers: ['Home', 'Game'],
 	launch: function(){

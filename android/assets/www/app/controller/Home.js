@@ -1,6 +1,6 @@
 Ext.define('App.controller.Home', {
 	extend: 'Ext.app.Controller',
-	views: ['HomeScreenView'],
+	views: ['HomeScreenView','AnswerView'],
 	config: {
 
 	},
@@ -8,6 +8,9 @@ Ext.define('App.controller.Home', {
 		this.control({
 			'#playGameButton': {
 				tap: this.onPlayGameTap
+			},
+			'#exitButton': {
+				tap: this.onExitGameTap
 			}
 		});
 
@@ -15,5 +18,9 @@ Ext.define('App.controller.Home', {
 		onPlayGameTap: function() {
 			   var gameController = App.app.getController('Game');  
 			   gameController.start();          
+		} ,
+		onExitGameTap: function() {
+			   var gameController = App.app.getController('Game');  
+			   gameController.exit();          
 		} 
 });

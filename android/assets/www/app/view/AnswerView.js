@@ -7,20 +7,21 @@ Ext.define('App.view.AnswerView', {
 		[
 			{
 				xtype: 'titlebar',
-            	title: 'hello',
+            	title: 'My ',
             	docked: 'top',
 			},
 			{
-				id:'answerImage',
-				 html: '<img style="height: 100px; width: 100px;" src="http://www.sencha.com/assets/images/sencha-avatar-64x64.png" />',
-
-            flex:1,
+				xtype: 'button',
+            	text: 'Exit',
+            	ui: 'normal',
+            	id: 'exitButton'
 			},
 			{
-            	html: '<b>hello</b>',
-            	flex:1,
+				xtype: 'button',
+            	text: 'Next',
+            	ui: 'normal',
+            	id: 'nextButton'
 			}
-			
 		]
 	}
 });
