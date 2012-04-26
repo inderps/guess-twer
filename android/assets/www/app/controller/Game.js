@@ -1,6 +1,6 @@
 Ext.define('App.controller.Game', {
 	extend: 'Ext.app.Controller',
-	views: ['GamePlayView'],
+	views: ['GamePlayView','AnswerView','finalResultView'],
 	config: {
 	},
 	init: function(){
@@ -25,7 +25,14 @@ Ext.define('App.controller.Game', {
 			'#guessButton': {
 				tap: this.guessButtonTap
 			},
+			// '#nextButton': {
+				// tap: this.guessButtonTap()
+			// },
+			// '#exitButton':{
+				// tap: this.exit()
+			// },
 			
+					
 			picker: {
 				change: this.guessOptionsSelected
 			}
@@ -33,9 +40,12 @@ Ext.define('App.controller.Game', {
 	},
 	
 	start: function() {
-		if(this.incorrectAnswers == 3) {
-			this.exit();
+		
+		if(this.incorrectAnswers >= 3) {
+			Ext.Viewport.setActiveItem(this.finalResultView);
 		}
+		else
+		{
 		this.questionNumber = this.questionNumber + 1;
 		Ext.Viewport.setMasked(true);
 		var image = this.main.innerItems[0];
@@ -58,6 +68,7 @@ Ext.define('App.controller.Game', {
             }
         });
 		Ext.Viewport.setActiveItem(this.main);
+		};
 	},
 	
 	guessButtonTap: function() { 
@@ -74,11 +85,12 @@ Ext.define('App.controller.Game', {
 		
 				
 				if(values.guessOptions == correctAnswer) {
-					
+									this.correctAnswer+=1;
 									this.result(true);
 									
 								}
 								else{
+									this.incorrectAnswers+=1;
 								this.result(false);
 								}
 								
@@ -88,7 +100,7 @@ Ext.define('App.controller.Game', {
 	result: function(result){
 		
 		Ext.Viewport.setActiveItem(this.answerView);
-	}	,
+	},
 	
 	exit: function(){
 		Ext.Viewport.setActiveItem(this.finalResultView);

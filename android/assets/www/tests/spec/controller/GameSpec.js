@@ -39,7 +39,7 @@ describe("GameController", function() {
   		expect(Ext.Viewport.setActiveItem).toHaveBeenCalled();
   });
   
-   it("should show alert on Game Over", function() {
+   it("should call exit method on Game Over", function() {
   		controller.incorrectAnswers = 3;
   		controller.questionNumber = 0;
   		controller.main = mockedMainView;

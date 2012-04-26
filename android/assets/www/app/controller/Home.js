@@ -11,6 +11,9 @@ Ext.define('App.controller.Home', {
 			},
 			'#exitButton': {
 				tap: this.onExitGameTap
+			},
+			'#nextButton': {
+				tap: this.onNextGameTap
 			}
 		});
 
@@ -22,5 +25,10 @@ Ext.define('App.controller.Home', {
 		onExitGameTap: function() {
 			   var gameController = App.app.getController('Game');  
 			   gameController.exit();          
-		} 
+		},
+		onNextGameTap: function() {
+			   var gameController = App.app.getController('Game');  
+			   gameController.start();          
+		}  
+		
 });

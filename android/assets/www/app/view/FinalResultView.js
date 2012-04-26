@@ -1,23 +1,21 @@
 Ext.define('App.view.FinalResultView', {
-	extend: 'Ext.Container',
+	extend: 'Ext.Panel',
 	config: {
 		fullscreen: true,
-		layout: 'vbox',
+		title: 'Guess Twer',
 		items: 
 		[
-		{
-			id: 'guessImage',
-			store: 'GuessImageStore',
-            tpl: '<img src="{imageUrl}" width="100%"/>',
-            style: 'background-color: #5E99CC;',
-            flex: 1
-        },
-        {
-			xtype: 'button',
-            text: 'Guess Me',
-            ui: 'normal',
-            id: 'guessButton',
-        }
+			{
+				xtype: 'titlebar',
+            	title: 'My Home',
+            	docked: 'top',
+			},
+			{
+				xtype: 'button',
+            	text: 'Play Game',
+            	ui: 'normal',
+            	id: 'playGameButton'
+			}
 		]
 	}
 });
