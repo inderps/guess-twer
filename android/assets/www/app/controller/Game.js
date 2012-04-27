@@ -25,14 +25,6 @@ Ext.define('App.controller.Game', {
 			'#guessButton': {
 				tap: this.guessButtonTap
 			},
-			// '#nextButton': {
-				// tap: this.guessButtonTap()
-			// },
-			// '#exitButton':{
-				// tap: this.exit()
-			// },
-			
-					
 			picker: {
 				change: this.guessOptionsSelected
 			}
@@ -80,10 +72,7 @@ Ext.define('App.controller.Game', {
 		},
 		
 	guessOptionsSelected: function(e, values) { 
-		
-		
-		
-				
+					
 				if(values.guessOptions == correctAnswer) {
 									this.correctAnswer+=1;
 									this.result(true);

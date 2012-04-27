@@ -1,9 +1,11 @@
 describe("HomeController", function() {
   var controller;
   var mockedGameController = {
-  	start: function(){}
+  	start: function(){},
+  	exit:function(){}
+  	
   }
-  
+    
   beforeEach(function() {
 		controller = App.controller.Home.prototype;
   });
@@ -23,5 +25,14 @@ describe("HomeController", function() {
   		expect(App.app.getController).toHaveBeenCalled();
   		expect(mockedGameController.exit).toHaveBeenCalled();
   });
+  
+  it("should call Exit Action of Game Controller on next Button Tap", function() {
+  		spyOn(App.app, 'getController').andReturn(mockedGameController);
+  		spyOn(mockedGameController, 'start');
+  		controller.onNextGameTap();
+  		expect(App.app.getController).toHaveBeenCalled();
+  		expect(mockedGameController.start).toHaveBeenCalled();
+  });
+ 
  
 });

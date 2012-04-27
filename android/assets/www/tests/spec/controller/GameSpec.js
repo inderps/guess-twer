@@ -52,10 +52,10 @@ describe("GameController", function() {
   		
   		controller.start();
   		
-  		expect(controller.exit).toHaveBeenCalled();
+  		expect(Ext.Viewport.setActiveItem).toHaveBeenCalled();
   });  
   
-  xit("should add picker to the view", function() {
+  it("should add picker to the view", function() {
   		confirm.picker = {
   			setValue:{},
 			show: function(){}
@@ -70,42 +70,42 @@ describe("GameController", function() {
   		expect(controller.picker.show).toHaveBeenCalled();
   });  
   
-    it("should redirect to result action with true as parameter on correct Guess Option selected", function() {
-    	window.correctAnswer= 1;
-    	var values = new Object();
-    	values.guessOptions = 1;
-    	spyOn(controller, 'result');
- 
-  		controller.guessOptionsSelected("", values);
-  		
-  		expect(controller.result).toHaveBeenCalledWith(true);
-  }); 
-  
-  it("should redirect to result action with false as parameter on correct Guess Option selected", function() {
-    	window.correctAnswer= 1;
-    	var values = new Object();
-    	values.guessOptions = 2;
-    	spyOn(controller, 'result');
-  		controller.guessOptionsSelected("", values);
-  		
+     it("should redirect to result action with true as parameter on correct Guess Option selected", function() {
+     window.correctAnswer= 1;
+     var values = new Object();
+     values.guessOptions = 1;
+     spyOn(controller, 'result');
+
+ controller.guessOptionsSelected("", values);
+   		
+  		 expect(controller.result).toHaveBeenCalledWith(true);
+   }); 
+   
+   it("should redirect to result action with false as parameter on correct Guess Option selected", function() {
+    	 window.correctAnswer= 1;
+    	 var values = new Object();
+    	 values.guessOptions = 2;
+    	 spyOn(controller, 'result');
+  		 controller.guessOptionsSelected("", values);
+   		
   		expect(controller.result).toHaveBeenCalledWith(false);
-  }); 
-  
-   it("should redirect to answerView on  result Action", function() {
-    	
-    	
-    	spyOn(Ext.Viewport, 'setActiveItem');
- 		
+   }); 
+   
+    it("should redirect to answerView on  result Action", function() {
+     	
+     	
+    	 spyOn(Ext.Viewport, 'setActiveItem');
   		
-  		controller.result(true);
-  		
-  		expect(Ext.Viewport.setActiveItem).toHaveBeenCalledWith(controller.answerView);
-  }); 
-  it("should redirect to final result if exit button is pressed", function(){
-  	spyOn(Ext.Viewport, 'setActiveItem');
-  	controller.exit();
-  	expect(Ext.Viewport.setActiveItem).toHaveBeenCalledWith(controller.finalResultView);
-  });
+   		
+  		 controller.result(true);
+   		
+  		 expect(Ext.Viewport.setActiveItem).toHaveBeenCalledWith(controller.answerView);
+   }); 
+   it("should redirect to final result if exit button is pressed", function(){
+  	 spyOn(Ext.Viewport, 'setActiveItem');
+  	 controller.exit();
+  	 expect(Ext.Viewport.setActiveItem).toHaveBeenCalledWith(controller.finalResultView);
+   });
   
   
 });
