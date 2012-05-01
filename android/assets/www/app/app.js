@@ -1,3 +1,5 @@
+function mainLaunch() {
+
 Ext.Loader.setConfig({
 	enabled: true
 });
@@ -22,14 +24,9 @@ Ext.application({
     //appFloder: 'app',
     controllers: ['Home', 'Game'],
 	launch: function(){
-		this.launched = true;
-        this.mainLaunch();
-		
-	 },
-	 mainLaunch: function() {
-        //if (!device || !this.launched) {return;}
-		console.log("App started");
-        var main = Ext.create('App.view.HomeScreenView');
+		var main = Ext.create('App.view.HomeScreenView');
 		Ext.Viewport.setActiveItem(main);
-    }
+	 }
 });
+
+}
