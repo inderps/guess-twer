@@ -18,6 +18,7 @@ describe("HomeController", function() {
   		expect(mockedGameController.start).toHaveBeenCalled();
   });
   
+/*
   it("should call Exit Action of Game Controller on Exit Button Tap", function() {
   		spyOn(App.app, 'getController').andReturn(mockedGameController);
   		spyOn(mockedGameController, 'exit');
@@ -32,7 +33,8 @@ describe("HomeController", function() {
   		controller.onNextGameTap();
   		expect(App.app.getController).toHaveBeenCalled();
   		expect(mockedGameController.start).toHaveBeenCalled();
-  });
+  });*/
+
  
  
 });

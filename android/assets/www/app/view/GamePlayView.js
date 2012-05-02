@@ -6,6 +6,19 @@ Ext.define('App.view.GamePlayView', {
 		items: 
 		[
 		{
+				xtype: 'toolbar',
+            	title: 'Guess-Twer?',
+            	docked: 'top',
+            	defaults: {
+                		iconMask: true
+            	},
+            	items: [
+                	{ iconCls: 'delete',
+                	  id: 'exitButton',
+                		docked: 'right'
+                	}]
+				},
+			{
 			id: 'guessImage',
 			store: 'GuessImageStore',
             tpl: '<img src="{imageUrl}" width="100%"/>',
