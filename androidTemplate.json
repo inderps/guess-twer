@@ -1,0 +1,20 @@
+{
+    "applicationName": "Guess-Twer",
+    "applicationId": "guesstwer",
+    "outputPath": "C:\",
+    "iconName": "",
+    "versionString": "1",
+    "inputPath": "C:\guess-twer\android\assets\www",
+    "configuration": "Debug",
+    "platform": "Android",
+    "certificatePath": "<certificatePath>",
+    "certificateAlias": "<certificateAlias>",
+    "sdkPath": "/android-sdk-mac_86",
+    "orientations": [
+        "portrait",
+        "landscapeLeft",
+        "landscapeRight",
+        "portraitUpsideDown"
+    ],
+    "deviceType": "<Not applicable for Android>"
+}
