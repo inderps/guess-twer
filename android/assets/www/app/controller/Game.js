@@ -51,15 +51,15 @@ Ext.define('App.controller.Game', {
 					Ext.Viewport.setMasked(false);
             		var guessOptionsStore = Ext.StoreMgr.lookup('GuessOptionsStore');
             		guessOptionsStore.removeAll();
-                	guessOptionsStore.add(result.data.guessOptions);  
+                	guessOptionsStore.add(result.guessOptions);  
 					guessOptionsStore.sync();
             
                 	image.setData({
-                                imageUrl : result.data.guessImage
+                                imageUrl : result.person.imageUri
                     });	
-                	correctAnswer = result.data.correctAnswer;
-                	role = result.data.role;
-                	office = result.data.office;
+                	correctAnswer = result.person.name;
+                	role = result.person.role;
+                	office = result.person.office;
 			});
 			
 		Ext.Viewport.setActiveItem(this.main, { type: 'slide', direction: 'left' });
