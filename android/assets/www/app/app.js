@@ -10,20 +10,21 @@ Ext.application({
     requires: [
     	'App.view.HomeScreenView',
     	'App.view.GamePlayView',
-    	'App.view.GuessPicker'
+    	'App.view.GuessPicker',
+    	'App.view.HighScoresView'
     	
     ],
 	//phoneStartupScreen: 'image/phoneStart.png',
     //glossOnIcon: false,
 
-    models: ['GuessImageModel', 'GuessOptionsModel'],
-    stores: ['GuessImageStore', 'GuessOptionsStore'],
-    views: ['HomeScreenView', 'GamePlayView', 'GuessPicker'],
+    models: ['GuessImageModel', 'GuessOptionsModel', 'HighScoresModel'],
+    stores: ['GuessImageStore', 'GuessOptionsStore', 'HighScoresStore'],
+    views: ['HomeScreenView', 'GamePlayView', 'GuessPicker', 'HighScoresView'],
     //appFloder: 'app',
-    controllers: ['Home', 'Game'],
+    controllers: ['Home', 'Game', 'HighScores'],
 	launch: function(){
-		var main = Ext.create('App.view.HomeScreenView');
-		Ext.Viewport.setActiveItem(main);
+			var homeController = App.app.getController('Home');  
+			homeController.index(); 
 	 }
 });
 

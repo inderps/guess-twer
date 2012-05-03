@@ -2,7 +2,13 @@ describe("GameController", function() {
   var controller;
   var mockedMainView = {
   	query: Array
-  }
+  };
+  var mockedController = {
+  	start: function(){},
+  	index: function(){},
+  	exit:function(){}
+  	
+  };
   
   beforeEach(function() {
 		controller = App.controller.Game.prototype;
@@ -41,6 +47,17 @@ describe("GameController", function() {
   		expect(Ext.Viewport.setMasked).toHaveBeenCalled();
   		expect(QuestionService.fetchQuestion).toHaveBeenCalled();
   		expect(Ext.Viewport.setActiveItem).toHaveBeenCalled();
+  });
+  
+  xit("should over the game if incorrect answers are more than 5", function() {
+  		controller.incorrectAnswers = 7;
+  		spyOn(Ext.Msg, 'prompt');
+  		spyOn(QuestionService, 'saveHighScore');
+  		
+  		controller.start();
+  		
+  		expect(Ext.Msg.prompt).toHaveBeenCalled();
+  		expect(QuestionService.saveHighScore).toHaveBeenCalled();
   });
   
   it("should add picker to the view", function() {
@@ -96,11 +113,12 @@ it("should show alert on Incorrect Guess Option selected", function() {
    }); 
    
    
-xit("should exit the game", function(){
-	window.device=null;
-  	 spyOn(window.device, 'exitApp');
-  	 controller.exitButtonTap();
-  	 expect(window.device.exitApp).toHaveBeenCalled();
+it("should go back to Main Screen", function(){
+		spyOn(App.app, 'getController').andReturn(mockedController);
+  		spyOn(mockedController, 'index');
+  		controller.homeButtonTap();
+  		expect(App.app.getController).toHaveBeenCalled();
+  		expect(mockedController.index).toHaveBeenCalled();
    });
   
   

@@ -1,15 +1,10 @@
 Ext.define('App.controller.Game', {
 	extend: 'Ext.app.Controller',
-	views: ['GamePlayView','AnswerView','finalResultView'],
+	views: ['GamePlayView'],
 	config: {
 	},
-	init: function(){
-		
-		this.questionsOrder = Shuffle.Me(new Array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25));
-		this.questionNumber = 0;
-		this.incorrectAnswers = 0;
-		this.score = 0;
-		
+	init: function(){	
+		this.setupGame();	
 		if (!this.main) {
 			this.main = Ext.create('App.view.GamePlayView');
 		}
@@ -21,8 +16,8 @@ Ext.define('App.controller.Game', {
 			'#guessButton': {
 				tap: this.guessButtonTap
 			},
-			'#exitButton': {
-				tap: this.exitButtonTap
+			'#homeButton': {
+				tap: this.homeButtonTap
 			},
 			picker: {
 				change: this.guessOptionsSelected
@@ -30,12 +25,21 @@ Ext.define('App.controller.Game', {
 		});
 	},
 	
+	setupGame: function (){
+		this.questionsOrder = Shuffle.Me(new Array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25));
+		this.questionNumber = 0;
+		this.incorrectAnswers = 0;
+		this.score = 0;
+	},
+	
 	start: function() {
 		if(this.incorrectAnswers > 5) {
 			var score = this.score;
 			Ext.Msg.prompt('Game Over (Your Score: ' + score + ')', 'Please enter your EmailId:', function(e, user) {
     			QuestionService.saveHighScore(user, score, function(result){
-					this.exitButtonTap();
+					var homeController = App.app.getController('Home');  
+					homeController.index(); 
+					return;
 			});
 			});
 		}
@@ -83,8 +87,9 @@ Ext.define('App.controller.Game', {
 				this.start();		
 	},	 
 	
-	exitButtonTap: function(){
-		device.exitApp();
+	homeButtonTap: function(){
+		var homeController = App.app.getController('Home');  
+		homeController.index(); 
 	}
 		
 		

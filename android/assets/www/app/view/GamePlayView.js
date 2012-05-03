@@ -13,8 +13,8 @@ Ext.define('App.view.GamePlayView', {
                 		iconMask: true
             	},
             	items: [
-                	{ iconCls: 'delete',
-                	  id: 'exitButton',
+                	{ iconCls: 'home',
+                	  id: 'homeButton',
                 		docked: 'right'
                 	}]
 				},
